@@ -1,6 +1,7 @@
 let buttons = document.querySelectorAll('button');
 let text_to_predict = document.getElementById('url');
 let desc = document.getElementById('desc');
+let category = document.getElementById('category')
 
 var head = document.getElementsByTagName('head')[0];
 var script = document.createElement('script');
@@ -27,8 +28,10 @@ for (b of buttons) {
         btext = e.target.innerText;
         switch (btext) {
             case 'CLASSIFY':
-                console.log(url.value)
-                desc.innerText = httpPostText();
+                console.log(url.value);
+                category.innerText = httpPostText();
+                desc.innerText = url.value;
+                
                 break;         
         }
     })
@@ -56,8 +59,8 @@ function httpPostText() {
     data: convertJson(),
         success: function(msg) {
                 console.log(msg);
-                desc.innerText  =msg['news_category']
-                desc.style.display = "block"
+                category.innerText  =msg['news_category']
+                category.style.display = "block"
             },
         error: function(msg) {
             console.log(msg)
@@ -82,6 +85,4 @@ function httpGet() {
         return false; }
         });
 };
-
-
 

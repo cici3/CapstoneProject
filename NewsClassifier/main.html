@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-  <h2>News Articles Classifier</h2>
+  <h2 >News Article Classifier</h2>
   <div class="row">
         <div class="column left">
           <p><img title="IIITh" src="./images/IIITh.jpg" > 
@@ -17,13 +17,11 @@
         </div>
         <div class="column right">
           <p>
-            <label>Please enter a valid URL to classify News article:</label>
+            <label>Please enter text to classify News article:</label>
             <input type="text" id="url" name="url">
             <button >CLASSIFY</button>
             <table>
-              <tr></tr>
-              <tr><td><label><b>Category:</b> Sports</label> </td><tr>
-              <tr></tr>
+              <tr><td><hr></td></tr>
               <tr>                 
                   <td>
                   <label><b>Description:</b> </label>
@@ -36,6 +34,13 @@
                   </label>
                 </td>
               </tr>
+              
+              <tr>
+                <td>
+                  <label><b>Category:</b></label> 
+                  <label id="category"></label> 
+                </td>
+              <tr></tr>
             </table>           
           </p>
         </div>
