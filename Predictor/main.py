@@ -1,16 +1,18 @@
 import uvicorn
+import os
+import requests
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
-from utils import load_model, predict
 
+from utils import load_model, predict,retrain_model,categories_for_retraining
+from typing import List
 from fastapi.middleware.cors import CORSMiddleware
 
 # defining the main app
 app = FastAPI(title="NewsArticleClassifier", docs_url="/")
 app.mount("/static", StaticFiles(directory="static"), name="static")
-
 
 app.add_middleware(
     CORSMiddleware,
@@ -20,13 +22,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 # class which is expected in the payload
 class QueryIn(BaseModel):
     news_text: str
 
 # class which is returned in the response
 class QueryOut(BaseModel):
+    news_category: str
+
+class DataIn(BaseModel):
+    news_text: str
     news_category: str
    
 
@@ -45,12 +50,16 @@ def predict_newscategory(query_data: QueryIn):
     output = {"news_category": predict(query_data)}
     return output
 
-@app.post("/reload_model", status_code=200)
-# Route to reload the model from file
-def reload_model():
-    load_model()
-    output = {"detail": "Model successfully loaded"}
-    return output
+@app.post("/retrain", status_code=200)
+# Route to take in data, process it and send it for training.
+def retrain(data: List[DataIn]):
+    processed = retrain_model(data)
+    return {"detail": "retraining successful"}
+
+@app.get("/categories", status_code=200)
+# Route to take in data, process it and send it for training.
+def categories():
+    return categories_for_retraining()
 
 @app.get("/static",response_class=FileResponse)
 async def NewsArticleClassifier():
