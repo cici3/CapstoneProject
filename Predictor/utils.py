@@ -46,10 +46,11 @@ def retrain_model(data):
     # print(type(clf))
     # pull out the relevant X and y from the FeedbackIn object
     X = [list(d.dict().values())[:-1] for d in data]
-    y = [r_classes[d.news_category] for d in data]
-    # print(X[0])
-    # print(y)
+    y = [[d.news_category] for d in data]
+  
+    print(X[0])
+    print(y[0])
     # fit the classifier again based on the new data obtained
-    (clf).fit(X[0], y)
+    (clf).fit(X[0], y[0])
     # save the model
-    pickle.dump(clf, open(model_path, "wb"))
+    pickle.dump(clf, open(model_path, "ab"))

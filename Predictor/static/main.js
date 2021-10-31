@@ -18,6 +18,7 @@ head.appendChild(script);
 
 function handler(){
    console.log('jquery added :)');
+   
 }
 
 urlPing = "http://localhost:9999/ping"
@@ -31,8 +32,12 @@ for (b of buttons) {
                 console.log(url.value);
                 category.innerText = httpPostText();
                 desc.innerText = url.value;
-                
-                break;         
+                url.innerText = "" ;
+                break;  
+            case 'CLEAR':
+                console.log("clear");
+                url.innerText = "" ;
+                break;      
         }
     })
 }
