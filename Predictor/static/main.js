@@ -37,8 +37,8 @@ for (b of buttons) {
                 break;  
             case 'CLEAR':
                 console.log("clear");
-                // text_to_predict.value = '' ;
-                //text_to_predict.innerHTML ='';
+                text_to_predict.value = '' ;
+                text_to_predict.innerHTML ='';
                 text_to_predict.innerText = '';
                 console.log(text_to_predict.value);
                 break;      
