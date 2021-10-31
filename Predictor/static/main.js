@@ -27,16 +27,20 @@ urlPredict = "http://localhost:9999/predict_newscategory"
 for (b of buttons) {
     b.addEventListener('click', (e) => {
         btext = e.target.innerText;
+        console.log("btext: ", btext)
         switch (btext) {
             case 'CLASSIFY':
                 console.log(url.value);
                 category.innerText = httpPostText();
                 desc.innerText = url.value;
-                url.innerText = "" ;
+                // url.innerText = "" ;
                 break;  
             case 'CLEAR':
                 console.log("clear");
-                url.innerText = "" ;
+                // text_to_predict.value = '' ;
+                //text_to_predict.innerHTML ='';
+                text_to_predict.innerText = '';
+                console.log(text_to_predict.value);
                 break;      
         }
     })
