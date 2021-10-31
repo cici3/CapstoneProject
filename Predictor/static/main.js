@@ -52,6 +52,7 @@ function convertJson(){
     return JSON.stringify(testString)
 };
 function httpPostText() {
+    console.log("inside js")
     jQuery.ajax({
     type: 'POST',
     url: urlPredict,

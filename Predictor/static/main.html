@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News Classifier</title>
+  <link rel="stylesheet" href="./static/main.css">
+</head>
+
+<body>
+  <h2>News Article Classifier</h2>
+  <div class="row">
+    <div class="column left">
+      <p><img title="IIITh" src="./static/images/IIITh.jpg">
+        <img title="GL" src="./static/images/GL.png">
+      </p>
+    </div>
+    <div class="column right">
+      <p>
+        <label>Please enter text to classify News article:</label>
+        <input type="text" id="url" name="url">
+        <!-- <input type="button" class="button" value="CLASSIFY"  onclick="httpPostText(this);">  -->
+        <!-- <button onclick="httpPostText()" id="classify">CLASSIFY</button> -->
+        <button>CLASSIFY</button>
+        <!-- <button onclick="getElementById('desc').innerHTML = Date()">What is the time?</button> -->
+      <table>
+        <tr>
+          <td>
+            <hr>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label><b>Description:</b> </label>
+            <label id="desc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis beatae, reiciendis cupiditate
+              laborum fugiat aperiam consequuntur neque iure. Vel quo eaque odio officia rem quisquam quod sunt natus
+              neque obcaecati!
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium omnis veritatis rem neque modi quas
+              porro, nostrum, perspiciatis non accusamus nam dolores laborum a nisi recusandae eius ullam delectus
+              dolore!
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci laudantium nobis voluptas est ipsa sunt
+              eum quaerat quam optio totam fugit magni minima, illum dolor, eos maiores similique sed eligendi.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste placeat ducimus nam, autem enim doloribus
+              ratione consequuntur aut cupiditate. Dignissimos sequi ipsa reiciendis, harum explicabo iste saepe nobis
+              perferendis ullam?
+            </label>
+            </label>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label><b>Category:</b></label>
+            <label id="category"></label>
+          </td>
+        <tr></tr>
+      </table>
+      </p>
+    </div>
+  </div>
+  
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="./static/main.js"></script>
+
+</body>
+
+</html>

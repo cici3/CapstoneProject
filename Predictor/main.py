@@ -1,5 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from utils import load_model, predict
 
@@ -7,6 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 # defining the main app
 app = FastAPI(title="NewsArticleClassifier", docs_url="/")
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 app.add_middleware(
@@ -48,6 +51,10 @@ def reload_model():
     load_model()
     output = {"detail": "Model successfully loaded"}
     return output
+
+@app.get("/static",response_class=FileResponse)
+async def NewsArticleClassifier():
+    return FileResponse("./static/main.html")
 
 # Main function to start the app when main.py is called
 if __name__ == "__main__":

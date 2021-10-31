@@ -4,7 +4,7 @@ from sklearn.utils.validation import check_is_fitted
 
 # define a Gaussain NB classifier
 clf = MultinomialNB()
-model_path = 'C:/Users/vatsala/Assignments/PartB/CapstoneProject_new/DataPreparaionandModeling/Model/newsclassfier_model.pkl'
+model_path = './trainedmodel/newsclassfier_model.pkl'
 
 # # define the class encodings and reverse encodings
 # classes = {0: "Class_0", 1: "Class_1", 2: "Class_2"}
