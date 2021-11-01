@@ -1,0 +1,9 @@
+Please follow the following steps to predict the news article:
+
+1. Fork the repository https://github.com/cici3/CapstoneProject
+2. Make sure docker is running
+2. Type 'docker-compose up' at the command prompt in the project root folder, this should start web application.
+3. Type localhost:9999/static in the browser, this should bring up the web page.
+4. Enter any news article data and click on classify, model should predict and return the category response.
+5. For retraining the model, type localhost:9999. Enter news_article text and category to retrain the model.
+6. Categories end point will show existing categories to map the feedback data.
